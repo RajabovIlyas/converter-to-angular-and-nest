@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+
+  server:
+    container_name: server
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+      target: development
+    volumes:
+        - ./server:/app
+    command: npm run start
+    ports:
+        - "3001:3000"
+
+  client-ui:
+    container_name: client-ui
+    working_dir: /app
+    build:
+      context: ./client-ui
+      dockerfile: Dockerfile
+      target: development
+    ports:
+      - "3000:4200"
+    command: sh -c "npm start"
+    volumes:
+      - ./client:/app
+        - node_modules:/app/node_modules
+
+
+  db:
+    container_name: database
+    image: postgres:14.1-alpine
+    restart: always
+    environment:
+      - POSTGRES_DB=converter
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=root
+    ports:
+      - '5434:5432'
+    volumes:
+      - db:/var/lib/postgresql/data
+volumes:
+  node_modules:
+  db:
+    driver: local
