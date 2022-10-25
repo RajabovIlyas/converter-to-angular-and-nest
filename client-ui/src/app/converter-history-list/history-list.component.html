@@ -1,0 +1,9 @@
+<ul class="list-group mb-3">
+  <li
+    class="list-group-item"
+    [ngClass]="{active: !indexOfElement}"
+    *ngFor="let history of historyList; index as indexOfElement;"
+  >
+    {{history.initialValue}} = {{history.convertedValue}}
+  </li>
+</ul>

@@ -1,0 +1,98 @@
+:root {
+  --select-clean-background-color: #a6a6a6;
+}
+
+.ng-select {
+  font-size: var(--input-medium-text-font-size);
+  font-weight: var(--input-medium-text-font-weight);
+  line-height: var(--input-medium-text-line-height);
+  padding: var(--input-medium-padding);
+  background-color: var(--input-basic-background-color);
+  border-radius: var(--input-rectangle-border-radius);
+  border-color: var(--input-basic-border-color);
+  border-width: var(--input-border-width);
+  border-style: solid;
+  color: var(--input-basic-text-color);
+
+  .ng-select-container {
+    cursor: pointer;
+    align-items: center;
+
+    .ng-value-container .ng-input > input:first-child {
+      cursor: text;
+    }
+
+    &.ng-has-value {
+      .ng-placeholder {
+        display: none;
+      }
+
+      .ng-clear-wrapper {
+        background-color: var(--select-clean-background-color);
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .ng-clear {
+          color: var(--option-list-background-color);
+        }
+      }
+    }
+  }
+}
+
+.ng-value {
+  padding: 0 4px;
+  background-color: var(--option-list-background-color);
+  border-radius: var(--input-rectangle-border-radius);
+  border-color: var(--input-basic-border-color);
+  border-width: var(--input-border-width);
+  border-style: solid;
+  margin-right: 4px;
+  display: flex;
+  align-items: center;
+
+  .ng-value-icon {
+    background-color: var(--select-clean-background-color);
+    border-radius: 50%;
+    color: var(--option-list-background-color);
+    width: 12px;
+    height: 12px;
+    margin-right: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.ng-dropdown-panel {
+  top: 45px;
+  left: 0;
+
+  .ng-dropdown-panel-items {
+    background-color: var(--option-list-background-color);
+    border-color: var(--option-list-border-color);
+    border-style: var(--option-list-border-style);
+    border-width: var(--option-list-border-width);
+    border-radius: var(--option-list-border-radius);
+    box-shadow: var(--option-list-shadow);
+
+    .ng-option {
+      font-size: var(--option-medium-text-font-size);
+      font-weight: var(--option-medium-text-font-weight);
+      line-height: var(--option-medium-text-line-height);
+      padding: var(--option-medium-padding);
+
+      &:hover {
+        background-color: var(--option-hover-background-color);
+      }
+
+      &.ng-option-selected {
+        background-color: var(--option-active-background-color);
+      }
+    }
+  }
+}

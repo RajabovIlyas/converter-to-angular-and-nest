@@ -3,11 +3,11 @@
 ###################
 FROM node:18-alpine As development
 
-RUN mkdir /app && chown node:node /app
+RUN mkdir /client && chown node:node /client
 
-RUN mkdir /app/node_modules && chown node:node /app/node_modules
+RUN mkdir /client/node_modules && chown node:node /client/node_modules
 
-WORKDIR  /app
+WORKDIR  /client
 
 COPY --chown=node:node package*.json ./
 

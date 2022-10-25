@@ -1,0 +1,66 @@
+<div class="container">
+  <form [formGroup]="form" class="mb-3">
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label class="label" for="initialValueType">Исходная единица измерения длины</label>
+          <select
+            name="option"
+            class="form-control"
+            id="initialValueType"
+            formControlName="initialValueType"
+          >
+            <option
+              *ngFor="let converterType of converterTypes"
+              [ngValue]="converterType.code"
+            >
+              {{ converterType.label }}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label class="label">Преобразованная единица измерения длины</label>
+          <select
+            name="option"
+            class="form-control"
+            id="convertedValueType"
+            formControlName="convertedValueType"
+          >
+            <option
+              *ngFor="let converterType of converterTypes"
+              [value]="converterType.code"
+            >
+              {{ converterType.label }}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label class="label" for="initialValue">Исходная величина</label>
+          <input
+            class="form-control"
+            formControlName="initialValue"
+            id="initialValue"
+            type="number"
+          />
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label class="label" for="convertedValue">Преобразованная величина</label>
+          <input
+            class="form-control"
+            formControlName="convertedValue"
+            id="convertedValue"
+            type="number"
+          />
+        </div>
+      </div>
+    </div>
+  </form>
+  <app-converter-history-list [historyList]="historyList">
+  </app-converter-history-list>
+</div>

@@ -3,3 +3,4 @@
 .vscode
 Dockerfile
 node_modules
+/.angular/cache
